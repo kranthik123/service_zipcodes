@@ -48,6 +48,13 @@
             "zipcode": 78872,
             "latitude": "+28.943649",
             "longitude": "-099.843874"
+        },
+        {
+            "county": "DALLAS",
+            "city": "COPPELL",
+            "zipcode": 75019,
+            "latitude": "+32.767268",
+            "longitude": "-096.777626"
         }
     ]
 }
