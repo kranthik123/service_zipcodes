@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: umbrella-zipcodes-svc
+  name: umbrella-zipcodes-prod-svc
   namespace: ibcprod
   labels:
     service: flask
