@@ -2,6 +2,7 @@ from flask import Flask
 from flask import make_response
 import json
 from flask import jsonify
+from flask import request
 
 app = Flask(__name__)
 
@@ -13,6 +14,13 @@ def main():
     for l in contents['data']:
         zipcode_list.append(l['zipcode'])
     return jsonify(zipcode_list)
+
+
+@app.route('/zipcode')
+def zipcode():
+    zipc = request.args.get('zipcode')
+    response = make_response('Sorry we are unable to support this zipcode %s at this time.' % zipc)
+    return response
 
 @app.route('/<page_name>')
 def other_page(page_name):
