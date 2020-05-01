@@ -3,6 +3,7 @@ from flask import make_response
 import json
 from flask import jsonify
 from flask import request
+import re
 
 app = Flask(__name__)
 
@@ -19,8 +20,13 @@ def main():
 @app.route('/zipcode')
 def zipcode():
     zipc = request.args.get('zipcode')
-    response = make_response('Sorry we are unable to support this zipcode %s at this time.' % zipc)
-    return response
+    pattern = "^[0-9]{5}(?:-[0-9]{4})?$"
+    if re.match(pattern, zipc):
+        response = make_response('Valid zipcode entered: %s.' % zipc)
+        return response
+    else:
+        response = make_response('Invalid zipcode provided: %s.' % zipc)
+        return response
 
 @app.route('/<page_name>')
 def other_page(page_name):
